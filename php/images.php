@@ -24,9 +24,9 @@ $api_query    = 'filter=_class($match:io.eagle.models.node.Attachment)&attr=name
 // eg. filter=_class($match:io.eagle.models.node.Attachment),parentId($eq:1234567890abcdef)
 
 
-// build the uri path ensuring query string is url encoded
-$uri = $api_path . $api_resource . '/?' . urlencode($api_query);
-// Automatically encode response as JSON
+// build the uri path
+$uri = $api_path . $api_resource . '/?' . $api_query;
+// Automatically encode JSON response as array
 \Httpful\Httpful::register(\Httpful\Mime::JSON, new \Httpful\Handlers\JsonHandler(array('decode_as_array' => true)));
 // Send request
 $response = \Httpful\Request::get($uri)
