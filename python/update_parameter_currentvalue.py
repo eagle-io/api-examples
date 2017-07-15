@@ -3,16 +3,10 @@
 # Read the API Documentation @ http://docs.eagle.io/en/latest/api/index.html
 # --------------------------------------------------------------------------
 
-# Import packages (must be pre-installed via PIP)
-import urllib
+# Import packages
 import httplib2
 import json
 import random
-
-try:
-    from urlparse import urlparse
-except ImportError:
-    from urllib.parse import urlparse
 
 # Set customId and value as required
 nodeCustomId      = '@mysensor'
@@ -40,5 +34,5 @@ if response.status != 202:
     print str(response.status) + ': ' + data['error']['message']
     exit()
 
-# Pretty print the response payload
+# Pretty print the data
 print json.dumps(data, indent=4)
