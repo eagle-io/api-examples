@@ -8,19 +8,19 @@ import httplib2
 import json
 import random
 
-# Set customId and value as required
-nodeCustomId      = '@mysensor'
-nodeCurrentValue  = random.randint(0,100) # generate random number between 0-100 for this example
+# Set node id and value as required
+node_id           = '@mysensor'           # note: customId's start with '@' 
+node_value        = random.randint(0,100) # generate random number between 0-100 for this example
 
 # Set api key and resource endpoint
 api_key           = 'YOUR_API_KEY_HERE'   # you can generate an API key from account settings
 api_path          = 'https://api.eagle.io/api/v1/'
-api_resource      = 'nodes/' + nodeCustomId + '/historic/now'
+api_resource      = 'nodes/' + node_id + '/historic/now'
 
 # Build http request
 uri               = api_path + api_resource
 headers           = {'Content-Type': 'application/json', 'X-Api-Key': api_key}
-body              = {'value': nodeCurrentValue}  # optionally include timestamp and quality. eg. {'value': 15, 'timestamp': '2017-07-14T23:38:00Z', 'quality': 149}
+body              = {'value': node_value}  # optionally include timestamp and quality. eg. {'value': 15, 'timestamp': '2017-07-14T23:38:00Z', 'quality': 149}
 
 # Send http request and get response
 http              = httplib2.Http()
