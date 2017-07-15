@@ -21,7 +21,8 @@ api_resource      = 'nodes/' + node_id + '/historic/now'
 req_uri           = api_path + api_resource
 req_method        = 'PUT'    
 req_headers       = {'Content-Type': 'application/json', 'X-Api-Key': api_key}
-req_body          = {'value': node_value}  # optionally include timestamp and quality. eg. {'value': 15, 'timestamp': '2017-07-14T23:38:00Z', 'quality': 149}
+req_body          = {'value': node_value}  # optionally include timestamp and quality:
+                  # {'value': 15, 'timestamp': '2017-07-14T23:38:00Z', 'quality': 149}
 
 # Send http request and get response
 http              = httplib2.Http()
